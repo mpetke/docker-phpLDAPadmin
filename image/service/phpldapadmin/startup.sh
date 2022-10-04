@@ -52,6 +52,13 @@ if [ ! "$(ls -A -I lost+found /var/www/phpldapadmin)" ]; then
   rm -f /var/www/phpldapadmin/config/config.php
 fi
 
+if [ -d "/templates" ]; then
+
+  log-helper info "Copy custom templates..."
+
+  cp /templates/* /var/www/phpldapadmin/templates/creation/
+fi
+
 # if there is no config
 if [ ! -e "/var/www/phpldapadmin/config/config.php" ]; then
 
